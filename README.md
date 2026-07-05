@@ -16,7 +16,7 @@ A full-stack inventory management system built from scratch as a learning projec
 
 - [x] Database planning
 - [x] ER Diagram
-- [ ] Database schema
+- [x] Database schema
 - [ ] Seed data
 - [ ] Triggers
 - [ ] Views
