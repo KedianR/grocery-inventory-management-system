@@ -19,6 +19,8 @@ BEGIN
         WHERE product_id = NEW.product_id;
         RETURN NEW;
     END IF;
+END;
+$$ LANGUAGE plpgsql;
 
 
     CREATE TRIGGER trg_update_stock_on_sale
