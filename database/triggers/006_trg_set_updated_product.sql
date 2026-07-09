@@ -4,9 +4,7 @@ begin
 	if new.product_id <> old.product_id then 
 	raise exception 'Changing product ids not allowed manually delete and reinsert please !!!';
 	end if;
-	update  product 
-	set updated_at = CURRENT_TIMESTAMP
-	where product_id = new.product_id;
+	 NEW.updated_at := current_timestamp;
 return new;
 end;
 $$ language plpgsql

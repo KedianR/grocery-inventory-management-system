@@ -6,8 +6,8 @@ r_sale_id int;
 begin
 r_sale_id := coalesce(new.sale_id,old.sale_id);
 update sale 
-set sale_total_amount = 
-(select coalesce(sum(product_sale_price*product_quantity),0) from sale_item 
+set total_sale_amount = 
+(select coalesce(sum(product_selling_price*product_sale_quantity),0) from sale_item 
 where sale_id = r_sale_id)
 where sale_id = r_sale_id;
 return coalesce(new, old);
