@@ -7,7 +7,7 @@ begin
 	 select current_stock into stock from product 
 	where product_id = new.product_id;
 	if TG_OP = 'INSERT' then 
-		if stock - new.product_quantity < 0 then
+		if stock - new.product_sale_quantity < 0 then
 		raise exception 'insufficient stock';
 		end if;
 		return new;
@@ -16,7 +16,7 @@ begin
 	if NEW.product_id <> OLD.product_id then
     raise exception 'Changing product_id is not allowed. Delete the row and insert a new one.';
 	end if;
-	if stock - new.product_quantity + old.product_quantity < 0 then
+	if stock - new.product_sale_quantity + old.product_sale_quantity < 0 then
 		raise exception 'insufficient stock';
 		end if;
 		return new;
